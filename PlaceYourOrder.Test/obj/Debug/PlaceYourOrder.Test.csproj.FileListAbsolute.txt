@@ -1,0 +1,11 @@
+c:\users\jun\documents\visual studio 2013\Projects\PlaceYourOrder\PlaceYourOrder.Test\bin\Debug\PlaceYourOrder.Test.dll
+c:\users\jun\documents\visual studio 2013\Projects\PlaceYourOrder\PlaceYourOrder.Test\bin\Debug\PlaceYourOrder.Test.pdb
+c:\users\jun\documents\visual studio 2013\Projects\PlaceYourOrder\PlaceYourOrder.Test\bin\Debug\PlaceYourOrder.exe
+c:\users\jun\documents\visual studio 2013\Projects\PlaceYourOrder\PlaceYourOrder.Test\bin\Debug\PlaceYourOrder.DTO.dll
+c:\users\jun\documents\visual studio 2013\Projects\PlaceYourOrder\PlaceYourOrder.Test\bin\Debug\PlaceYourOrder.Exception.dll
+c:\users\jun\documents\visual studio 2013\Projects\PlaceYourOrder\PlaceYourOrder.Test\bin\Debug\PlaceYourOrder.pdb
+c:\users\jun\documents\visual studio 2013\Projects\PlaceYourOrder\PlaceYourOrder.Test\bin\Debug\PlaceYourOrder.DTO.pdb
+c:\users\jun\documents\visual studio 2013\Projects\PlaceYourOrder\PlaceYourOrder.Test\bin\Debug\PlaceYourOrder.Exception.pdb
+c:\users\jun\documents\visual studio 2013\Projects\PlaceYourOrder\PlaceYourOrder.Test\obj\Debug\PlaceYourOrder.Test.csprojResolveAssemblyReference.cache
+c:\users\jun\documents\visual studio 2013\Projects\PlaceYourOrder\PlaceYourOrder.Test\obj\Debug\PlaceYourOrder.Test.dll
+c:\users\jun\documents\visual studio 2013\Projects\PlaceYourOrder\PlaceYourOrder.Test\obj\Debug\PlaceYourOrder.Test.pdb
