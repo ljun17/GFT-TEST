@@ -2,7 +2,7 @@
 
 namespace PlaceYourOrder.DTO
 {
-    public class Order : Base
+    public class Order
     {
         readonly Period _period;
         readonly  List<Dish> _dish;

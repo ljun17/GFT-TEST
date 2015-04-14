@@ -50,10 +50,6 @@
       <Project>{ceb7b8c6-f677-407c-9ae1-0217a3262fc2}</Project>
       <Name>PlaceYourOrder.DTO</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PlaceYourOrder.Exception\PlaceYourOrder.Exception.csproj">
-      <Project>{c389a5e4-13f8-407a-a11e-f35a00db90b0}</Project>
-      <Name>PlaceYourOrder.Exception</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

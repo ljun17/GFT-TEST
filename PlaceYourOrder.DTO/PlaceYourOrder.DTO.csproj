@@ -40,7 +40,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base.cs" />
+    <Compile Include="Dessert.cs" />
     <Compile Include="Dish.cs" />
+    <Compile Include="DishesBase.cs" />
+    <Compile Include="Drink.cs" />
+    <Compile Include="Entree.cs" />
     <Compile Include="Enums\DishType.cs" />
     <Compile Include="Enums\Dessert.cs" />
     <Compile Include="Enums\Drink.cs" />
@@ -50,12 +54,7 @@
     <Compile Include="Period.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\PlaceYourOrder.Exception\PlaceYourOrder.Exception.csproj">
-      <Project>{c389a5e4-13f8-407a-a11e-f35a00db90b0}</Project>
-      <Name>PlaceYourOrder.Exception</Name>
-    </ProjectReference>
+    <Compile Include="Side.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

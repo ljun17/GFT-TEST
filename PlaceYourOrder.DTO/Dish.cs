@@ -5,25 +5,22 @@ using System.Collections.Generic;
 
 namespace PlaceYourOrder.DTO
 {
-    public class Dish : Base
+    public class Dish : DishesBase
     {
         public bool Error { get; set; }
-        public int QuantityEntree { get; set; }
-        public int QuantitySide { get; set; }
-        public int QuantityDrink { get; set; }
-        public int QuantityDessert { get; set; }
         public ArrayList dishList { get; set; }
-        const string formatMoreThanOne = "{0}(x{1})";
-        const string formatOne = "{0}";
+        private Entree entree { get; set; }
+        private Side side { get; set; }
+        private Drink drink { get; set; }
+        private Dessert dessert { get; set; }
 
         public Dish()
         {
             dishList = new ArrayList();
-        }
-
-        public static List<DTO.Dish> GetList()
-        {
-            return new List<DTO.Dish>();
+            entree = new Entree();
+            side = new Side();
+            drink = new Drink();
+            dessert = new Dessert();
         }
 
         public string GetByCode(int code, Period period)
@@ -32,84 +29,67 @@ namespace PlaceYourOrder.DTO
             switch (code)
             {
                 case 1://Entree
-                    if (QuantityEntree >= 1)
-                        dishSelected = "error";
+                    if (entree.getQuantity() >= 1)
+                        this.Error = true;
                     else if (period.Value == PeriodType.Morning.ToString())
-                        dishSelected = string.Format(formatOne, Entree.eggs.ToString());
+                        dishSelected = entree.GetEntreeMorning();
                     else
-                        dishSelected = string.Format(Entree.steak.ToString());
-
-                    QuantityEntree++;
+                        dishSelected = entree.GetEntreeNight();
                     break;
                 case 2://Side
-                    if (QuantitySide >= 1 && period.Value == PeriodType.Morning.ToString())
-                        dishSelected = "error";
+                    if (side.getQuantity() >= 1 && period.Value == PeriodType.Morning.ToString())
+                        this.Error = true;
                     else if (period.Value == PeriodType.Morning.ToString())
                     {
-                        dishSelected = string.Format(Side.toast.ToString());
-                        QuantitySide++;
+                        dishSelected = side.GetSideMorning();
+                    }
+                    else if (side.getQuantity() >= 1)
+                    {
+                        dishList.RemoveAt(dishList.Count - 1);
+                        dishSelected = side.GetSideNightMoreThanOne();
                     }
                     else
-                    {
-                        if (QuantitySide >= 1)
-                        {
-                            dishList.RemoveAt(dishList.Count-1);
-                            QuantitySide++;
-                            dishSelected = string.Format(formatMoreThanOne, Side.potato.ToString(), QuantitySide);
-                        }
-                        else
-                        {
-                            dishSelected = string.Format(Side.potato.ToString());
-                            QuantitySide++;
-                        }
-                    }
+                        dishSelected = side.GetSideNightOne();
 
-                    
                     break;
                 case 3://Drink
-                    if (QuantityDrink >= 1 && period.Value != PeriodType.Morning.ToString())
-                        dishSelected = "error";
-                    else if (period.Value == PeriodType.Morning.ToString())
+                    if (drink.getQuantity() >= 1 && period.Value != PeriodType.Morning.ToString())
+                        this.Error = true;
+                    else if (period.Value == PeriodType.Night.ToString())
                     {
-                        if (QuantityDrink >= 1)
-                        {
-                            dishList.RemoveAt(dishList.Count - 1);
-                            QuantityDrink++;
-                            dishSelected = string.Format(formatMoreThanOne, Drink.coffee.ToString(), QuantityDrink);
-                        }
-                        else
-                        {
-                            QuantityDrink++;
-                            dishSelected = string.Format(Drink.coffee.ToString());
-                        }
+                        dishSelected = drink.GetDrinkNight();
+                    }
+                    else if (drink.getQuantity() >= 1)
+                    {
+                        dishList.RemoveAt(dishList.Count - 1);
+                        dishSelected = drink.GetDrinkMorningMoreThanOne();
                     }
                     else
-                    {
-                        QuantityDrink++;
-                        dishSelected = Drink.wine.ToString();
-                    }
-                   
+                        dishSelected = drink.GetDrinkMorningOne();
+
                     break;
                 case 4://Dessert
-                    if (QuantityDessert >= 1)
-                        dishSelected = "error";
+                    if (dessert.getQuantity() >= 1)
+                        this.Error = true;
                     if (period.Value == PeriodType.Morning.ToString())
-                        dishSelected = string.Format(Dessert.error.ToString());
+                        dishSelected = dessert.GetDessertMorning();
                     else
-                        dishSelected = string.Format(Dessert.cake.ToString());
-                    QuantityDessert++;
+                        dishSelected = dessert.GetDessertNight();
                     break;
                 default://Error
-                    dishSelected = "error";
+                    this.Error = true;;
                     break;
             }
 
-            dishList.Add(dishSelected);
-            if (dishSelected.Equals("error"))
-                Error = true;
-            return dishSelected;
+            if(this.Error == true)
+                dishList.Add("error");
+            else
+                dishList.Add(dishSelected);
             
+            return dishSelected;
+
         }
+
         public string GetDishTypeFor(string dishCode, Period period)
         {
             int result;
@@ -117,8 +97,5 @@ namespace PlaceYourOrder.DTO
                 return GetByCode(result, period);
             return string.Empty;
         }
-
-
-
     }
 }

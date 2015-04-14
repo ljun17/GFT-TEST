@@ -24,12 +24,12 @@ namespace PlaceYourOrder
             {
                 string commands = Console.ReadLine();
                 if (string.IsNullOrWhiteSpace(commands))
-                    throw new PlaceYourOrder.Exception.CustomException("Periods requested do not exist");
+                    throw new Exception("Periods requested do not exist");
 
                 Console.WriteLine(OrderingService.TakeOrder(commands));
                 Console.Read();
             }
-            catch (PlaceYourOrder.Exception.CustomException ex)
+            catch (Exception ex)
             {
                 Console.Write(ex.Message);
                 Console.Read();

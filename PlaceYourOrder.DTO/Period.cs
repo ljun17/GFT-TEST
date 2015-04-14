@@ -3,7 +3,7 @@ using System;
 
 namespace PlaceYourOrder.DTO
 {
-    public class Period  : Base
+    public class Period  
     {        
         public string Value { get; set; }
         public Period(string period)
@@ -19,7 +19,7 @@ namespace PlaceYourOrder.DTO
             if (results.Length > 0)
                 return new Period(results[0]);
             else
-                throw new PlaceYourOrder.Exception.CustomException("Periods requested do not exist");
+                throw new Exception("Periods requested do not exist");
         }
     }
 }
