@@ -1,0 +1,10 @@
+Prompt vs 
+C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\Tools\Shortcuts\VS2013 x64 Cross Tools Command Prompt
+
+Executar o teste via MSTEST
+mstest /testcontainer:"C:\Temp\PlaceYourOrder\PlaceYourOrder.Test\bin\Debug\PlaceYourOrder.Test.dll" 
+
+Publicacao via MSBuild
+MSBuild.exe C:\Temp\PlaceYourOrder\PlaceYourOrder.csproj /p:Platform=AnyCPU /p:Configuration=Release
+MSBuild.exe C:\Temp\PlaceYourOrder.DTO\PlaceYourOrder.DTO.csproj /p:Platform=AnyCPU /p:Configuration=Debug
+MSBuild.exe C:\Temp\PlaceYourOrder.Test\PlaceYourOrder.Test.csproj /p:Platform=AnyCPU /p:Configuration=Debug
